@@ -1,4 +1,4 @@
-# Yo Mommoa AI joke generator
+# Yo Momma AI joke generator
 Win any argument with quickly generated yo momma joke.
 
 <p align="center">
