@@ -1,8 +1,9 @@
 import java.util.Properties
+import org.jetbrains.kotlin.gradle.swiftexport.ExperimentalSwiftExportDsl
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.1.0-Beta1"
+    alias(libs.plugins.kotlinSerialization)
 }
 
 val localProperties = Properties()
@@ -62,6 +63,11 @@ kotlin {
         iosMain.dependencies {
             implementation("io.ktor:ktor-client-darwin:3.0.0")
         }
+    }
+
+    @OptIn(ExperimentalSwiftExportDsl::class)
+    swiftExport {
+        moduleName = "Shared"
     }
 }
 

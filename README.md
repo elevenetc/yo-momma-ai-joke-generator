@@ -12,3 +12,8 @@ openai.api.key=
 openai.org.id=
 openai.project.id=
 ```
+## SwiftExport
+To use SwiftExport instead of ObjCExport add to `local.properties`
+```bash
+kotlin.experimental.swift-export.enabled=true
+```
