@@ -68,6 +68,18 @@ kotlin {
     @OptIn(ExperimentalSwiftExportDsl::class)
     swiftExport {
         moduleName = "Shared"
+        export("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0-RC") {
+            moduleName = "kotlinxCoroutinesCore"
+        }
+        export("io.ktor:ktor-client-core:3.0.0") {
+            moduleName = "ktorCore"
+        }
+        export("io.ktor:ktor-client-content-negotiation:3.0.0") {
+            moduleName = "ktorContentNegotiation"
+        }
+        export("io.ktor:ktor-serialization-kotlinx-json:3.0.0") {
+            moduleName = "ktorSerializationJson"
+        }
     }
 }
 
