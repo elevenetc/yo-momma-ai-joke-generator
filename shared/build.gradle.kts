@@ -10,7 +10,8 @@ val localProperties = Properties()
 val localPropertiesFile = rootProject.file("local.properties")
 if (localPropertiesFile.exists()) localProperties.load(localPropertiesFile.inputStream()) else error("local.properties file not found")
 val openAiApiKey = localProperties.getProperty("openai.api.key") ?: error("No openai.api.key found in local.properties")
-val openAiProjectId = localProperties.getProperty("openai.project.id") ?: error("No openai.project.id found in local.properties")
+val openAiProjectId =
+    localProperties.getProperty("openai.project.id") ?: error("No openai.project.id found in local.properties")
 val openAiOrgId = localProperties.getProperty("openai.org.id") ?: error("No openai.org.id found in local.properties")
 
 val buildConfigGenerator by tasks.registering(Sync::class) {
@@ -54,10 +55,10 @@ kotlin {
                 buildConfigGenerator.map { it.destinationDir }
             )
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0-RC")
-                implementation("io.ktor:ktor-client-core:3.0.0")
-                implementation("io.ktor:ktor-client-content-negotiation:3.0.0")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:3.0.0")
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.content.negitiation)
+                implementation(libs.ktor.serialization.json)
             }
         }
         iosMain.dependencies {
@@ -68,18 +69,14 @@ kotlin {
     @OptIn(ExperimentalSwiftExportDsl::class)
     swiftExport {
         moduleName = "Shared"
-        export("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0-RC") {
-            moduleName = "kotlinxCoroutinesCore"
-        }
-        export("io.ktor:ktor-client-core:3.0.0") {
-            moduleName = "ktorCore"
-        }
-        export("io.ktor:ktor-client-content-negotiation:3.0.0") {
-            moduleName = "ktorContentNegotiation"
-        }
-        export("io.ktor:ktor-serialization-kotlinx-json:3.0.0") {
-            moduleName = "ktorSerializationJson"
-        }
+        export(libs.kotlinx.coroutines.core) { moduleName = "kotlinxCoroutinesCore" }
+        export(libs.ktor.client.core) { moduleName = "ktorCore" }
+        export(libs.ktor.client.content.negitiation) { moduleName = "ktorContentNegotiation" }
+        export(libs.ktor.serialization.json) { moduleName = "ktorSerializationJson" }
+        export(libs.ktor.client.cio) { moduleName = "ktorClientCio" }
+        export(libs.ktor.http) { moduleName = "ktorHttp" }
+        export(libs.ktor.events) { moduleName = "ktorEvents" }
+        export(libs.ktor.io) { moduleName = "ktorIo" }
     }
 }
 

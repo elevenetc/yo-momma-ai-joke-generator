@@ -1,10 +1,20 @@
 [versions]
 junit = "4.13.2"
 kotlin = "2.1.0-Beta2"
+ktor = "3.0.0"
+coroutines = "1.9.0-RC"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-content-negitiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-http = { module = "io.ktor:ktor-http", version.ref = "ktor" }
+ktor-events = { module = "io.ktor:ktor-events", version.ref = "ktor" }
+ktor-io = { module = "io.ktor:ktor-io", version.ref = "ktor" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 
